@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "Call-WhatssApp-Button",
-    "version": "1.1.144",
+    "version": "1.1.150",
     "name": "Call-WhatssApp-Button",
     "scopes": [
         "vso.work",
@@ -118,6 +118,23 @@
                         "id": "FieldWithCellNumber",
                         "name": "Fields With CellNumber",
                         "description": "Field that represent the cell number for open whatsapp ,",
+                        "type": "TextArea",
+                        "properties": {
+                            "workItemFieldTypes": [
+                                "Integer",
+                                "Double",
+                                "String"
+                            ]
+                        },
+                        "validation": {
+                            "dataType": "String",
+                            "isRequired": true
+                        }
+                    },
+                    {
+                        "id": "ValuesToReplace",
+                        "name": "Values To Replace",
+                        "description": "Field that represent the values for replace current URL ,",
                         "type": "TextArea",
                         "properties": {
                             "workItemFieldTypes": [

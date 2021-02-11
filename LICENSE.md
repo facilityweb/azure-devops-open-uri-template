@@ -1,6 +1,8 @@
 # MIT License
 
-## Copyright (c) 2019-2020 Shayki Abramczyk
+## Copyright (c) 2021 Igor de Andrade Monteiro
+
+this software is based on Shayki Abramczyk template.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

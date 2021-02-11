@@ -14,23 +14,34 @@ export class Model {
 
     public buttonName:string;
     public field: string;
+    public fieldsList: Array<string>;
+    public valuesList: Array<string>;    
     public externalUrlToCall: string;
 
-    constructor( buttonsNames: string, field: string,externalUrlToCall:string) {
+    constructor( buttonsNames: string, field: string,externalUrlToCall:string,value:string) {
         this.field = field;
+        this.fieldsList = field.split(",");
+        this.valuesList = value.split(",");
         this.buttonName = buttonsNames;
         this.externalUrlToCall = externalUrlToCall;
+        var count = 0;
+        this.fieldsList.forEach(element => {
+                WorkItemFormService.getService().then(
+                    (service) => {
+                        service.getFieldValue(element).then((values) => {
+                            debugger;
+                            this.externalUrlToCall =this.externalUrlToCall.replace(this.valuesList[count].toString(),values.toString());
+                            count++; 
+                        })
+                    });
+
+        });
     }
     public buttonPressed(): void {
-            this.OpenWhatssApp();
+        this.OpenUrl();
     }
-    private OpenWhatssApp() {
-        WorkItemFormService.getService().then(
-            (service) => {
-                service.getFieldValue(this.field).then((values) => {
-                    var win = window.open(this.externalUrlToCall+values, '_blank');
-                    win.focus();
-                })
-            });
+    private OpenUrl() {
+        var win = window.open(this.externalUrlToCall, '_blank');
+        win.focus();
     }
 }

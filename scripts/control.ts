@@ -7,6 +7,7 @@ export class Controller {
     private _buttonName: string = "";  
     private _filedToCall: string = ""; 
     private _externalUrlToCall: string = ""; 
+    private _valuesToReplace: string = ""; 
     private _inputs;                      //: IDictionaryStringTo<string>;
     private _model: Model;
     private _view: View;
@@ -17,8 +18,9 @@ export class Controller {
         this._inputs = VSS.getConfiguration().witInputs;
         this._buttonName = this._inputs["ButtonName"];
         this._filedToCall = this._inputs["FieldWithCellNumber"];
-        this._externalUrlToCall = this._inputs["ExternalUrl"];        
-        this._model = new Model(this._buttonName,this._filedToCall,this._externalUrlToCall);
+        this._externalUrlToCall = this._inputs["ExternalUrl"];
+        this._valuesToReplace = this._inputs["ValuesToReplace"];        
+        this._model = new Model(this._buttonName,this._filedToCall,this._externalUrlToCall,this._valuesToReplace);
         this._view = new View(this._model);
         VSS.resize();
     }
